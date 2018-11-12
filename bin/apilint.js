@@ -27,7 +27,7 @@ const parser = require('yargs')
   .epilog('See https://github.com/danielgtaylor/apilint#readme for more information');
 const {argv} = parser;
 
-const WIDTH = clc.windowSize.width;
+const WIDTH = process.env["COLS"] || 120; // clc.windowSize.width; // this doesn't work when i write to file or use tee
 
 function getLineInfo(source, position) {
   let number = 1;
